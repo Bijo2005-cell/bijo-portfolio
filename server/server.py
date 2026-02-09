@@ -14,12 +14,35 @@ ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
 # MongoDB connection
-mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
+# Use os.getenv to avoid crashing if local .env is missing
+mongo_url = os.getenv('MONGO_URL')
+db_name = os.getenv('DB_NAME', 'portfolio_db')
+
+# Initialize DB client only if URL exists (prevents build crashes)
+if mongo_url:
+    client = AsyncIOMotorClient(mongo_url)
+    db = client[db_name]
+else:
+    client = None
+    db = None
 
 # Create the main app
 app = FastAPI()
+
+# --- CORS CONFIGURATION (MUST BE HERE AT THE TOP) ---
+origins = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "https://bijo-portfolio.vercel.app"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
@@ -87,30 +110,35 @@ async def root():
 # Projects
 @api_router.get("/projects", response_model=List[Project])
 async def get_projects():
+    if db is None: return []
     projects = await db.projects.find().to_list(1000)
     return projects
 
 # Experience
 @api_router.get("/experience", response_model=List[Experience])
 async def get_experience():
+    if db is None: return []
     experience = await db.experience.find().to_list(1000)
     return experience
 
 # Skills
 @api_router.get("/skills", response_model=List[Skill])
 async def get_skills():
+    if db is None: return []
     skills = await db.skills.find().to_list(1000)
     return skills
 
 # Education
 @api_router.get("/education", response_model=List[Education])
 async def get_education():
+    if db is None: return []
     education = await db.education.find().to_list(1000)
     return education
 
 # Profile
 @api_router.get("/profile", response_model=Profile)
 async def get_profile():
+    if db is None: return Profile(name="Error", title="No DB", bio="", socials={})
     profile = await db.profile.find_one()
     if profile:
         return Profile(**profile)
@@ -119,6 +147,7 @@ async def get_profile():
 # Contact
 @api_router.post("/contact", response_model=Message)
 async def create_message(msg: Message):
+    if db is None: raise HTTPException(status_code=500, detail="Database not connected")
     new_msg = msg.dict(by_alias=True)
     await db.messages.insert_one(new_msg)
     return msg
@@ -126,6 +155,7 @@ async def create_message(msg: Message):
 # Status
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):
+    if db is None: raise HTTPException(status_code=500, detail="Database not connected")
     status_dict = input.dict()
     status_obj = StatusCheck(**status_dict)
     _ = await db.status_checks.insert_one(status_obj.dict())
@@ -133,24 +163,12 @@ async def create_status_check(input: StatusCheckCreate):
 
 @api_router.get("/status", response_model=List[StatusCheck])
 async def get_status_checks():
+    if db is None: return []
     status_checks = await db.status_checks.find().to_list(1000)
     return [StatusCheck(**status_check) for status_check in status_checks]
 
 # --- App Config ---
 app.include_router(api_router)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://localhost:3000",
-        "https://bijo-portfolio.vercel.app",
-        "https://*.vercel.app"  # Allow all Vercel preview deployments
-    ],
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -158,6 +176,10 @@ logger = logging.getLogger(__name__)
 # --- Startup: Seed Data ---
 @app.on_event("startup")
 async def seed_data():
+    if db is None:
+        logger.warning("Database not connected, skipping seed")
+        return
+        
     # 1. Seed Profile
     if await db.profile.count_documents({}) == 0:
         await db.profile.insert_one({
@@ -168,7 +190,7 @@ async def seed_data():
             "location": "India",
             "email": "contact@bijokbinoy.dev",
             "socials": {
-                "github": "https://github.com",
+                "github": "https://github.com/Bijo2005-cell",
                 "linkedin": "https://linkedin.com",
                 "twitter": "https://twitter.com"
             }
@@ -213,7 +235,7 @@ async def seed_data():
             },
             {
                 "_id": str(uuid.uuid4()),
-                "title": "AI-Powered Resort Website",
+                "title": "Royal Star Resort",
                 "description": "Dynamic resort website with AI chatbot for 24/7 support and real-time booking.",
                 "tags": ["PHP", "MySQL", "AI Chatbot", "Bootstrap"],
                 "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=2070",
@@ -298,4 +320,5 @@ async def seed_data():
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
-    client.close()
+    if client:
+        client.close()
