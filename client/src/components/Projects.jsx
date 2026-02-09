@@ -4,7 +4,7 @@ import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import { fetchProjects } from '../api';
 
 // Import local images
-import sahayatriImg from '../image/sahayatri.png';
+import sahayatriImg from '../image/sahayatri.jpg';
 import foodImg from '../image/food.png';
 import movieImg from '../image/movie.png';
 import resortImg from '../image/resort.png';
