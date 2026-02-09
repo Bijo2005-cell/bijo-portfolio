@@ -1,0 +1,154 @@
+:root {
+  /* Professional Theme: White, Dark Gray, Blue */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  /* Light Gray for contrast */
+
+  --text-primary: #1f2937;
+  /* Dark Gray */
+  --text-secondary: #4b5563;
+  /* Medium Gray */
+
+  --accent: #2563eb;
+  /* Professional Blue */
+  --accent-hover: #1d4ed8;
+  /* Darker Blue for hover states */
+  --accent-light: #eff6ff;
+  /* Very light blue for backgrounds */
+
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(229, 231, 235, 0.5);
+  --glass-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Switched to Inter for more professional look if available, otherwise fallback */
+  --nav-height: 80px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  line-height: 1.5;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 120px 0;
+  /* More whitespace */
+  position: relative;
+}
+
+.section-title {
+  font-size: 3.5rem;
+  /* Larger, bolder */
+  margin-bottom: 5rem;
+  text-align: center;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  /* Solid color for professional look instead of gradient */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 24px;
+  /* More rounded */
+}
+
+.glass-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  /* Very subtle shadow */
+  border-radius: 24px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  /* Soft, large shadow on hover */
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  /* Slightly less rounded for professional feel */
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: var(--accent-hover);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+/* Custom Selection Color */
+::selection {
+  background: var(--text-primary);
+  color: white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E5E7EB;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}

@@ -1,0 +1,18 @@
+{
+  "name": "bijo-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio for Bijo K Binoy",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && uvicorn server:app --reload",
+    "client": "cd client && npm run dev",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "keywords": [],
+  "author": "Bijo K Binoy",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

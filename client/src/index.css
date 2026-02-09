@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        /* #ffffff */
+        --foreground: 215 28% 17%;
+        /* #1f2937 */
+
+        --card: 220 14% 96%;
+        /* #f9fafb */
+        --card-foreground: 215 28% 17%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 215 28% 17%;
+
+        --primary: 221 83% 53%;
+        /* #2563eb */
+        --primary-foreground: 0 0% 100%;
+
+        --secondary: 220 14% 96%;
+        /* #f3f4f6 */
+        --secondary-foreground: 215 28% 17%;
+
+        --muted: 220 14% 96%;
+        --muted-foreground: 220 9% 46%;
+        /* #6b7280 */
+
+        --accent: 210 100% 96%;
+        /* #eff6ff */
+        --accent-foreground: 221 83% 53%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+
+        --border: 220 13% 91%;
+        /* #e5e7eb */
+        --input: 220 13% 91%;
+        --ring: 221 83% 53%;
+        --radius: 0.5rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-display tracking-tight;
+    }
+}
+
+/* Typography Utilities */
+.text-display-giant {
+    @apply font-display font-bold leading-[0.9] uppercase;
+    font-size: clamp(4.5rem, 8vw, 10rem);
+}
+
+.text-display-large {
+    @apply font-display font-bold leading-[1.1];
+    font-size: clamp(3rem, 6vw, 7rem);
+}
+
+.text-section-heading {
+    @apply font-sans font-semibold leading-tight;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* Button Utilities */
+.btn-pill {
+    @apply inline-flex items-center justify-center rounded-full border border-current px-6 py-2.5 font-mono text-xs uppercase tracking-wider transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary active:scale-95;
+}
+
+.tag-pill {
+    @apply inline-flex items-center rounded-full border border-current px-3 py-1 font-mono text-[10px] uppercase tracking-wider;
+}
