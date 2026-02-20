@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import React, { useEffect } from 'react';
 import Lenis from 'lenis';
-=======
-import React from 'react';
->>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
@@ -12,7 +8,6 @@ import About from './components/About';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Journey from './components/Journey';
-<<<<<<< HEAD
 import CustomCursor from './components/CustomCursor';
 
 function App() {
@@ -44,14 +39,6 @@ function App() {
         <div className="bg-background min-h-screen text-foreground selection:bg-primary selection:text-black overflow-x-hidden">
             <CustomCursor />
             <Navbar />
-
-=======
-
-function App() {
-    return (
-        <div className="bg-background min-h-screen text-foreground selection:bg-primary selection:text-black overflow-x-hidden">
-            <Navbar />
->>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
             <main>
                 <Hero />
                 <About />

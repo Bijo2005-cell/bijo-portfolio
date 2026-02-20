@@ -52,15 +52,13 @@
         @apply bg-background text-foreground;
         font-feature-settings: "rlig" 1, "calt" 1;
         -webkit-font-smoothing: antialiased;
-<<<<<<< HEAD
-        cursor: none; /* Hide default cursor */
+        cursor: none;
+        /* Hide default cursor */
     }
 
     /* Selection Styles */
     ::selection {
         @apply bg-primary text-white;
-=======
->>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
     }
 
     h1,
@@ -73,7 +71,6 @@
     }
 }
 
-<<<<<<< HEAD
 /* Lenis Smooth Scroll */
 html.lenis {
     height: auto;
@@ -95,8 +92,6 @@ html.lenis {
     pointer-events: none;
 }
 
-=======
->>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
 /* Typography Utilities */
 .text-display-giant {
     @apply font-display font-bold leading-[0.9] uppercase;
@@ -115,7 +110,6 @@ html.lenis {
 
 /* Button Utilities */
 .btn-pill {
-<<<<<<< HEAD
     @apply inline-flex items-center justify-center rounded-full border border-current px-6 py-2.5 font-mono text-xs uppercase tracking-wider transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary active:scale-95 cursor-none;
 }
 
@@ -131,11 +125,3 @@ html.lenis {
 .reveal-text span {
     @apply inline-block;
 }
-=======
-    @apply inline-flex items-center justify-center rounded-full border border-current px-6 py-2.5 font-mono text-xs uppercase tracking-wider transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary active:scale-95;
-}
-
-.tag-pill {
-    @apply inline-flex items-center rounded-full border border-current px-3 py-1 font-mono text-[10px] uppercase tracking-wider;
-}
->>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d

@@ -62,7 +62,6 @@ const Hero = () => {
                         {/* Content */}
                         <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center">
                             <div className="max-w-4xl">
-<<<<<<< HEAD
                                 <div className="mb-2">
                                     <motion.h1
                                         className="text-display-giant leading-[0.85] tracking-tighter"
@@ -87,22 +86,10 @@ const Hero = () => {
                                                 {slide.subtitle}
                                             </motion.span>
                                         </div>
-=======
-                                <div className="overflow-hidden mb-2">
-                                    <motion.h1
-                                        initial={{ y: 100, opacity: 0 }}
-                                        whileInView={{ y: 0, opacity: 1 }}
-                                        transition={{ duration: 0.8, ease: "easeOut" }}
-                                        className="text-display-giant leading-[0.85] tracking-tighter"
-                                    >
-                                        <span className="block text-white">{slide.title}</span>
-                                        <span className={`block ${slide.accent}`}>{slide.subtitle}</span>
->>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
                                     </motion.h1>
                                 </div>
 
                                 <motion.div
-<<<<<<< HEAD
                                     initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.6, duration: 0.8 }}
@@ -114,24 +101,10 @@ const Hero = () => {
                                     <div className="h-[1px] w-16 bg-white/20" />
                                     <p className="text-xl font-light text-gray-300 italic">
                                         2025 Edition
-=======
-                                    initial={{ opacity: 0 }}
-                                    whileInView={{ opacity: 1 }}
-                                    transition={{ delay: 0.5 }}
-                                    className="flex items-center gap-4 mt-8"
-                                >
-                                    <span className="font-mono text-sm uppercase tracking-widest border border-white/30 px-4 py-2 rounded-full backdrop-blur-md">
-                                        Portfolio 2025
-                                    </span>
-                                    <div className="h-[1px] w-24 bg-white/30" />
-                                    <p className="text-xl font-light text-gray-200 max-w-md">
-                                        Building the future of digital interaction through code and design.
->>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
                                     </p>
                                 </motion.div>
 
                                 <motion.div
-<<<<<<< HEAD
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.8, duration: 0.8 }}
@@ -150,26 +123,11 @@ const Hero = () => {
                                         >
                                             <ArrowRight size={18} />
                                         </motion.span>
-=======
-                                    initial={{ y: 20, opacity: 0 }}
-                                    whileInView={{ y: 0, opacity: 1 }}
-                                    transition={{ delay: 0.7 }}
-                                    className="mt-12"
-                                >
-                                    <a href="#work" className="group inline-flex items-center gap-3 text-lg font-mono uppercase tracking-widest hover:text-primary transition-colors">
-                                        View Projects
-                                        <span className="p-3 border border-white/30 rounded-full group-hover:border-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                                            <ArrowRight size={20} />
-                                        </span>
->>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
                                     </a>
                                 </motion.div>
                             </div>
                         </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
                     </SwiperSlide>
                 ))}
             </Swiper>

@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-<<<<<<< HEAD
 import { User, MapPin, Mail, ArrowUpRight, Download } from 'lucide-react';
 import { fetchProfile } from '../api';
 import profileImg from '../image/1000029285-01.jpeg';
 import resume from '../image/resume_bijo_k_binoy (2).pdf';
-=======
-import { User, MapPin, Mail, ArrowUpRight } from 'lucide-react';
-import { fetchProfile } from '../api';
-import face2 from '../image/face2.jpeg';
->>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
 
 const About = () => {
     const [profile, setProfile] = useState(null);
@@ -38,7 +32,6 @@ const About = () => {
 
             <div className="container mx-auto px-6 relative z-10">
                 <motion.div
-<<<<<<< HEAD
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -62,36 +55,12 @@ const About = () => {
                                         className="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000 scale-100 group-hover:scale-105"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-=======
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="max-w-6xl mx-auto"
-                >
-                    <div className="flex flex-col md:flex-row gap-16 items-center">
-
-                        {/* Image Column */}
-                        <motion.div
-                            style={{ y }}
-                            className="w-full md:w-2/5"
-                        >
-                            <div className="relative group">
-                                <div className="absolute inset-0 bg-primary/20 rounded-2xl transform translate-x-4 translate-y-4 transition-transform group-hover:translate-x-2 group-hover:translate-y-2" />
-                                <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-gray-100 relative shadow-2xl">
-                                    <img
-                                        src={face2}
-                                        alt={profile.name}
-                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
-                                    />
->>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
                                 </div>
                             </div>
                         </motion.div>
 
                         {/* Content Column */}
                         <div className="w-full md:w-3/5">
-<<<<<<< HEAD
                             <span className="text-primary font-bold font-mono text-[10px] tracking-[0.4em] uppercase mb-6 block">About Me</span>
 
                             <div className="mb-10">
@@ -173,35 +142,6 @@ const About = () => {
                                     Get Resume
                                 </a>
                             </motion.div>
-=======
-                            <span className="text-primary font-bold font-mono text-sm tracking-widest uppercase mb-4 block">About Me</span>
-                            <h2 className="text-display-large mb-6 text-foreground">Who I Am</h2>
-
-                            <h3 className="text-3xl font-display font-bold mb-4 text-foreground/80">{profile.name}</h3>
-                            <p className="text-xl text-primary font-mono mb-8">{profile.title}</p>
-
-                            <p className="text-muted-foreground text-lg leading-relaxed mb-10 border-l-4 border-primary/20 pl-6">
-                                {profile.bio}
-                            </p>
-
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <motion.div whileHover={{ x: 5 }} className="flex items-center gap-4 text-foreground/70 p-4 rounded-xl bg-secondary/50">
-                                    <div className="p-3 bg-white rounded-full shadow-sm text-primary">
-                                        <MapPin size={20} />
-                                    </div>
-                                    <span className="font-medium">{profile.location}</span>
-                                </motion.div>
-
-                                <motion.div whileHover={{ x: 5 }} className="flex items-center gap-4 text-foreground/70 p-4 rounded-xl bg-secondary/50">
-                                    <div className="p-3 bg-white rounded-full shadow-sm text-primary">
-                                        <Mail size={20} />
-                                    </div>
-                                    <a href={`mailto:${profile.email}`} className="font-medium hover:text-primary transition-colors flex items-center gap-2">
-                                        {profile.email} <ArrowUpRight size={14} />
-                                    </a>
-                                </motion.div>
-                            </div>
->>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
                         </div>
                     </div>
                 </motion.div>
