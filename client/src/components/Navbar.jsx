@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD
 import { Menu, X, Download } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import resume from '../image/resume_bijo_k_binoy (2).pdf';
+=======
+import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+>>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -25,19 +30,28 @@ const Navbar = () => {
     ];
 
     return (
+<<<<<<< HEAD
         <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out ${scrolled ? 'bg-white/90 backdrop-blur-xl py-3 shadow-lg ring-1 ring-black/5' : 'bg-transparent py-8'}`}>
+=======
+        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-6'}`}>
+>>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
             <div className="container mx-auto px-6 flex justify-between items-center">
                 <motion.a
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     href="#"
+<<<<<<< HEAD
                     className="text-2xl font-display font-bold uppercase tracking-tighter text-foreground z-50 group cursor-none"
                     data-cursor-text="Home"
+=======
+                    className="text-2xl font-display font-bold uppercase tracking-tighter text-foreground z-50 group"
+>>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
                 >
                     PORT<span className="text-primary group-hover:text-foreground transition-colors">FOLIO</span>
                 </motion.a>
 
                 {/* Desktop Nav */}
+<<<<<<< HEAD
                 <div className="hidden lg:flex items-center gap-10">
                     {navLinks.map((link, i) => (
                         <motion.a
@@ -80,6 +94,34 @@ const Navbar = () => {
                 </div>
 
 
+=======
+                <div className="hidden lg:flex items-center gap-8">
+                    {navLinks.map((link, i) => (
+                        <motion.a
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                            key={link.name}
+                            href={link.href}
+                            className="text-xs font-mono uppercase tracking-widest text-foreground/80 hover:text-primary transition-colors relative group"
+                        >
+                            {link.name}
+                            <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
+                        </motion.a>
+                    ))}
+                    <motion.a
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        href="#contact"
+                        className="btn-pill bg-foreground text-white hover:bg-primary hover:text-white border-transparent shadow-lg shadow-blue-900/10"
+                    >
+                        Let's Talk
+                    </motion.a>
+                </div>
+
+>>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
                 {/* Mobile Toggle */}
                 <button
                     className="lg:hidden z-50 text-foreground hover:text-primary transition-colors"
@@ -111,6 +153,7 @@ const Navbar = () => {
                                     {link.name}
                                 </motion.a>
                             ))}
+<<<<<<< HEAD
                             <motion.a
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -123,6 +166,8 @@ const Navbar = () => {
                                 <Download size={32} />
                                 Resume
                             </motion.a>
+=======
+>>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
                         </motion.div>
                     )}
                 </AnimatePresence>

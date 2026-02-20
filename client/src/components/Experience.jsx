@@ -22,6 +22,7 @@ const Experience = () => {
         <section id="experience" className="py-32 bg-secondary/30 text-foreground">
             <div className="container mx-auto px-6 max-w-5xl">
                 <motion.div
+<<<<<<< HEAD
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -37,6 +38,15 @@ const Experience = () => {
                             >Career Path</motion.span>
                         </div>
                     </h2>
+=======
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mb-20 text-center"
+                >
+                    <span className="text-primary font-bold font-mono text-sm tracking-widest uppercase mb-4 block">Experience</span>
+                    <h2 className="text-display-large text-foreground">Career Path</h2>
+>>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
                 </motion.div>
 
                 <div className="relative border-l-2 border-primary/20 ml-4 md:ml-0 md:pl-0 space-y-16">

@@ -27,6 +27,7 @@ const Journey = () => {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="flex flex-col lg:flex-row gap-20 items-start">
                     <motion.div
+<<<<<<< HEAD
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
@@ -43,6 +44,16 @@ const Journey = () => {
                             </div>
                         </h2>
                         <p className="text-gray-400 mt-10 text-xl font-light leading-relaxed">
+=======
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="lg:w-1/3 sticky top-32"
+                    >
+                        <span className="text-primary font-bold font-mono text-sm tracking-widest uppercase mb-4 block">Education</span>
+                        <h2 className="text-display-large text-white">My<br />Journey</h2>
+                        <p className="text-gray-400 mt-8 text-xl font-light">
+>>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
                             The academic foundation that paved the way for my technical career.
                         </p>
                     </motion.div>

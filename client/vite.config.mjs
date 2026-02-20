@@ -16,7 +16,11 @@ export default defineConfig({
     },
     server: {
         proxy: {
+<<<<<<< HEAD
             '/api': 'http://localhost:5000'
+=======
+            '/api': 'http://localhost:8000'
+>>>>>>> e3c37c871caa747f6f21109a71a5850105a7335d
         }
     }
 })
