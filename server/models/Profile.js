@@ -6,11 +6,11 @@ const profileSchema = new mongoose.Schema({
     bio: { type: String, required: true },
     location: { type: String },
     email: { type: String, required: true },
-    socialLinks: {
+    socials: {
         github: String,
         linkedin: String,
         twitter: String
     }
 });
 
-module.exports = mongoose.model('Profile', profileSchema);
+module.exports = mongoose.model('Profile', profileSchema, 'profile');

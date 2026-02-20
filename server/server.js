@@ -19,7 +19,9 @@ app.use(cors());
 app.use(express.json());
 
 // Database Connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/bijo_portfolio';
+const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost:27017';
+const dbName = process.env.DB_NAME || 'bijo_portfolio';
+const MONGODB_URI = process.env.MONGODB_URI || `${mongoUrl}/${dbName}`;
 mongoose.connect(MONGODB_URI)
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.error('MongoDB Connection Error:', err));

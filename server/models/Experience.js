@@ -7,4 +7,4 @@ const experienceSchema = new mongoose.Schema({
     description: { type: [String], required: true }
 });
 
-module.exports = mongoose.model('Experience', experienceSchema);
+module.exports = mongoose.model('Experience', experienceSchema, 'experience');

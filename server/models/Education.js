@@ -6,4 +6,4 @@ const educationSchema = new mongoose.Schema({
     degree: { type: String, required: true }
 });
 
-module.exports = mongoose.model('Education', educationSchema);
+module.exports = mongoose.model('Education', educationSchema, 'education');
