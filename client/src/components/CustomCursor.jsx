@@ -23,8 +23,9 @@ const CustomCursor = () => {
             const isClickable = target.closest('a, button, .cursor-pointer, .btn-pill');
             setIsHovering(!!isClickable);
 
-            if (target.dataset?.cursorText) {
-                setCursorText(target.dataset.cursorText);
+            const cursorEl = target.closest('[data-cursor-text]');
+            if (cursorEl?.dataset?.cursorText) {
+                setCursorText(cursorEl.dataset.cursorText);
             } else {
                 setCursorText("");
             }

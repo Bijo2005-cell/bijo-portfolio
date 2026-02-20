@@ -1,17 +1,17 @@
 services:
   - type: web
     name: bijo-portfolio-api
-    runtime: python
+    runtime: node
     rootDir: server
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT
+    buildCommand: npm install
+    startCommand: node server.js
     envVars:
       - key: MONGO_URL
         sync: false
       - key: DB_NAME
-        value: portfolio_db
+        value: bijo_portfolio
       - key: CORS_ORIGINS
         value: https://bijo-portfolio.vercel.app
-      - key: PYTHON_VERSION
-        value: 3.11.0
-    healthCheckPath: /api/
+      - key: NODE_VERSION
+        value: 18.0.0
+    healthCheckPath: /api/profile

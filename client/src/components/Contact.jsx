@@ -126,6 +126,7 @@ const Contact = () => {
                                             name={field === 'Name' ? 'entry.1076311181' : 'entry.264854344'}
                                             id={field.toLowerCase()}
                                             required
+                                            placeholder={field === 'Name' ? 'Your full name' : 'your@email.com'}
                                             className="w-full bg-secondary/30 border-2 border-transparent rounded-2xl px-6 py-5 text-foreground focus:outline-none focus:border-primary/30 focus:bg-white transition-all placeholder:text-gray-400 cursor-none"
                                             value={field === 'Name' ? formState.name : formState.email}
                                             onChange={(e) => setFormState({ ...formState, [field.toLowerCase()]: e.target.value })}
